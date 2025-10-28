@@ -161,10 +161,10 @@ const ConsumerOrders = () => {
               </div>
 
               {/* Payment Information */}
-              <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-lg mb-4">
+              <div className="p-4 bg-orange-50 border border-orange-200 rounded-lg mb-4">
                 <h4 className="font-medium text-gray-900 mb-3 flex items-center">
                   <svg
-                    className="w-5 h-5 text-emerald-600 mr-2"
+                    className="w-5 h-5 text-orange-600 mr-2"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -181,9 +181,9 @@ const ConsumerOrders = () => {
                 <div className="bg-white p-3 rounded-lg border">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
                         <svg
-                          className="w-6 h-6 text-emerald-600"
+                          className="w-6 h-6 text-orange-600"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -192,21 +192,21 @@ const ConsumerOrders = () => {
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             strokeWidth={2}
-                            d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h2M5 8h2a1 1 0 001-1V6a1 1 0 00-1-1H5a1 1 0 00-1 1v1a1 1 0 001 1z"
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                           />
                         </svg>
                       </div>
                       <div>
                         <p className="font-semibold text-gray-900">
-                          Paid via Scanner
+                          Pay to Delivery Boy
                         </p>
                         <p className="text-sm text-gray-600">
-                          Payment processed through QR scanner
+                          Payment via scanner shown by delivery personnel
                         </p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-orange-100 text-orange-700">
                         <svg
                           className="w-4 h-4 mr-1"
                           fill="none"
@@ -217,12 +217,12 @@ const ConsumerOrders = () => {
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             strokeWidth={2}
-                            d="M5 13l4 4L19 7"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                           />
                         </svg>
-                        Paid
+                        Payment Due
                       </span>
-                      <p className="text-lg font-bold text-emerald-600 mt-1">
+                      <p className="text-lg font-bold text-orange-600 mt-1">
                         ₹{order.totalAmount}
                       </p>
                     </div>
@@ -242,8 +242,24 @@ const ConsumerOrders = () => {
                           d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                         />
                       </svg>
-                      <span>
-                        Payment confirmed on {formatDate(order.createdAt)}
+                      <span>Pay when delivery boy arrives with scanner</span>
+                    </div>
+                    <div className="flex items-center text-sm text-orange-600 mt-2 bg-orange-50 p-2 rounded">
+                      <svg
+                        className="w-4 h-4 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"
+                        />
+                      </svg>
+                      <span className="font-medium">
+                        Cash on Delivery (COD) - Scan & Pay
                       </span>
                     </div>
                   </div>
