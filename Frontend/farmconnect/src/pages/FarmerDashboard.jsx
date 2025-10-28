@@ -12,6 +12,9 @@ const FarmerDashboard = () => {
 
   const { user } = useAuth();
 
+  const API_BASE_URL =
+    import.meta.env.VITE_API_BASE_URL || "http://localhost:3000/api";
+
   const [formData, setFormData] = useState({
     name: "",
     price: "",
@@ -38,7 +41,7 @@ const FarmerDashboard = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "http://localhost:3000/api/products/farmer/my-products"
+        `${API_BASE_URL}/products/farmer/my-products`
       );
       setProducts(response.data.products);
       setError(null);
@@ -77,13 +80,13 @@ const FarmerDashboard = () => {
       if (editingProduct) {
         // Update existing product
         await axios.put(
-          `http://localhost:3000/api/products/${editingProduct._id}`,
+          `${API_BASE_URL}/products/${editingProduct._id}`,
           formData
         );
         alert("Product updated successfully!");
       } else {
         // Create new product
-        await axios.post("http://localhost:3000/api/products", formData);
+        await axios.post(`${API_BASE_URL}/products`, formData);
         alert("Product added successfully!");
       }
 
@@ -111,7 +114,7 @@ const FarmerDashboard = () => {
   const handleDelete = async (productId) => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       try {
-        await axios.delete(`http://localhost:3000/api/products/${productId}`);
+        await axios.delete(`${API_BASE_URL}/products/${productId}`);
         alert("Product deleted successfully!");
         fetchProducts();
       } catch (error) {

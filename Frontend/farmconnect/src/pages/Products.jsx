@@ -16,6 +16,9 @@ const Products = () => {
   const { user } = useAuth();
   const { addToCart } = useCart();
 
+  const API_BASE_URL =
+    import.meta.env.VITE_API_BASE_URL || "http://localhost:3000/api";
+
   const categories = [
     { value: "all", label: "All Categories" },
     { value: "vegetables", label: "Vegetables" },
@@ -49,9 +52,7 @@ const Products = () => {
       if (selectedCategory && selectedCategory !== "all")
         params.append("category", selectedCategory);
 
-      const response = await axios.get(
-        `http://localhost:3000/api/products?${params}`
-      );
+      const response = await axios.get(`${API_BASE_URL}/products?${params}`);
       setProducts(response.data.products);
       setError(null);
     } catch (error) {

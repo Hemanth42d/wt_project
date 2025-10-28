@@ -10,6 +10,9 @@ const ConsumerOrders = () => {
 
   const { user } = useAuth();
 
+  const API_BASE_URL =
+    import.meta.env.VITE_API_BASE_URL || "http://localhost:3000/api";
+
   const statusColors = {
     pending: "bg-yellow-100 text-yellow-800",
     confirmed: "bg-blue-100 text-blue-800",
@@ -26,7 +29,7 @@ const ConsumerOrders = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "http://localhost:3000/api/orders/consumer/my-orders"
+        `${API_BASE_URL}/orders/consumer/my-orders`
       );
       setOrders(response.data.orders);
       setError(null);

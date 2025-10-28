@@ -10,6 +10,9 @@ const FarmerOrders = () => {
 
   const { user } = useAuth();
 
+  const API_BASE_URL =
+    import.meta.env.VITE_API_BASE_URL || "http://localhost:3000/api";
+
   const statusColors = {
     pending: "bg-yellow-100 text-yellow-800",
     confirmed: "bg-blue-100 text-blue-800",
@@ -26,7 +29,7 @@ const FarmerOrders = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "http://localhost:3000/api/orders/farmer/received-orders"
+        `${API_BASE_URL}/orders/farmer/received-orders`
       );
       setOrders(response.data.orders);
       setError(null);
@@ -40,7 +43,7 @@ const FarmerOrders = () => {
 
   const updateOrderStatus = async (orderId, newStatus) => {
     try {
-      await axios.put(`http://localhost:3000/api/orders/${orderId}/status`, {
+      await axios.put(`${API_BASE_URL}/orders/${orderId}/status`, {
         status: newStatus,
       });
       alert("Order status updated successfully!");

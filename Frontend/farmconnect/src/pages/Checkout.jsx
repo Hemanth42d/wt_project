@@ -9,6 +9,9 @@ const Checkout = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
+  const API_BASE_URL =
+    import.meta.env.VITE_API_BASE_URL || "http://localhost:3000/api";
+
   const [formData, setFormData] = useState({
     deliveryAddress: "",
     contactNumber: "",
@@ -47,10 +50,7 @@ const Checkout = () => {
         contactNumber: formData.contactNumber,
       };
 
-      const response = await axios.post(
-        "http://localhost:3000/api/orders",
-        orderData
-      );
+      const response = await axios.post(`${API_BASE_URL}/orders`, orderData);
 
       if (response.data.success) {
         alert("Order placed successfully!");
