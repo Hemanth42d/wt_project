@@ -145,7 +145,7 @@ const ConsumerOrders = () => {
               </div>
 
               {/* Delivery Details */}
-              <div className="p-3 bg-gray-50 rounded">
+              <div className="p-3 bg-gray-50 rounded mb-4">
                 <h4 className="font-medium text-gray-900 mb-2">
                   Delivery Details:
                 </h4>
@@ -155,6 +155,96 @@ const ConsumerOrders = () => {
                 <p className="text-gray-700">
                   <strong>Contact:</strong> {order.contactNumber}
                 </p>
+              </div>
+
+              {/* Payment Information */}
+              <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-lg mb-4">
+                <h4 className="font-medium text-gray-900 mb-3 flex items-center">
+                  <svg
+                    className="w-5 h-5 text-emerald-600 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+                    />
+                  </svg>
+                  Payment Information
+                </h4>
+                <div className="bg-white p-3 rounded-lg border">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
+                        <svg
+                          className="w-6 h-6 text-emerald-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h2M5 8h2a1 1 0 001-1V6a1 1 0 00-1-1H5a1 1 0 00-1 1v1a1 1 0 001 1z"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-gray-900">
+                          Paid via Scanner
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          Payment processed through QR scanner
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800">
+                        <svg
+                          className="w-4 h-4 mr-1"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        Paid
+                      </span>
+                      <p className="text-lg font-bold text-emerald-600 mt-1">
+                        ₹{order.totalAmount}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-gray-100">
+                    <div className="flex items-center text-sm text-gray-600">
+                      <svg
+                        className="w-4 h-4 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      <span>
+                        Payment confirmed on {formatDate(order.createdAt)}
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Order Status Timeline */}
