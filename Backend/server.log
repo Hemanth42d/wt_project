@@ -1,0 +1,27 @@
+nohup: ignoring input
+[dotenv@17.2.3] injecting env (5) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+🚀 Server running on port 3000
+📱 Frontend URL: http://localhost:5173
+✅ MongoDB connected successfully
+Registration error: MongoServerError: Command find requires authentication
+    at Connection.sendCommand (/home/hemanth/Documents/wt_project1/Backend/node_modules/mongodb/lib/cmap/connection.js:306:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (/home/hemanth/Documents/wt_project1/Backend/node_modules/mongodb/lib/cmap/connection.js:334:26)
+    at async Server.command (/home/hemanth/Documents/wt_project1/Backend/node_modules/mongodb/lib/sdam/server.js:194:29)
+    at async tryOperation (/home/hemanth/Documents/wt_project1/Backend/node_modules/mongodb/lib/operations/execute_operation.js:213:32)
+    at async executeOperation (/home/hemanth/Documents/wt_project1/Backend/node_modules/mongodb/lib/operations/execute_operation.js:78:16)
+    at async FindCursor._initialize (/home/hemanth/Documents/wt_project1/Backend/node_modules/mongodb/lib/cursor/find_cursor.js:62:26)
+    at async FindCursor.cursorInit (/home/hemanth/Documents/wt_project1/Backend/node_modules/mongodb/lib/cursor/abstract_cursor.js:632:27)
+    at async FindCursor.fetchBatch (/home/hemanth/Documents/wt_project1/Backend/node_modules/mongodb/lib/cursor/abstract_cursor.js:666:13)
+    at async FindCursor.next (/home/hemanth/Documents/wt_project1/Backend/node_modules/mongodb/lib/cursor/abstract_cursor.js:342:17) {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: 0,
+    errmsg: 'Command find requires authentication',
+    code: 13,
+    codeName: 'Unauthorized'
+  },
+  ok: 0,
+  code: 13,
+  codeName: 'Unauthorized'
+}
